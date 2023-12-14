@@ -3,6 +3,7 @@ package br.com.gabrielapq.atlocadora;
 import br.com.gabrielapq.atlocadora.controllers.FilmeController;
 import br.com.gabrielapq.atlocadora.model.Filme;
 import br.com.gabrielapq.atlocadora.service.FilmeService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,31 +21,35 @@ public class FilmeServiceTests {
     FilmeService filmeService;
 
     @Test
+    @DisplayName("Teste do método getAll")
     public void testGetAll(){
-        logger.info("Teste do método getAll");
+        logger.info("Faz o teste a partir da quantidade de itens na lista de filmes.");
         List<Filme> filmes = filmeService.getAll();
         assertEquals(14,filmes.size());
     }
 
     @Test
+    @DisplayName("Teste do método getById")
     public void testByIdNaoExistente(){
-        logger.info("Teste do método getById");
+        logger.info("Faz o teste buscando um id que não existe na lista.");
         assertThrows(RuntimeException.class,()-> {
             filmeService.getById(15);
         });
     }
 
     @Test
+    @DisplayName("Teste do método save")
     public void testAdd(){
-        logger.info("Teste do método save");
+        logger.info("Faz o teste pra conferir se o filme esta corretamente adicionado.");
         Filme filme = new Filme();
         Filme novoFilmeAdd = filmeService.save(filme);
         assertEquals(filme,novoFilmeAdd);
     }
 
     @Test
+    @DisplayName("Teste do método update")
     public void testUpdate(){
-        logger.info("Teste do método update");
+        logger.info("Faz o teste para sinalizar que ocorre erro ao tentar atualizar um filme que não existe na lista, a partir do id.");
         Filme filme = new Filme();
         filme.setId(50);
         assertThrows(RuntimeException.class,()-> {
@@ -53,8 +58,9 @@ public class FilmeServiceTests {
     }
 
     @Test
+    @DisplayName("Teste do método delete")
     public void testDelete(){
-        logger.info("Teste do método delete");
+        logger.info("Faz o teste para sinalizar que ocorre erro ao tentar um filme que não existe na lista, a partir do id.");
         assertThrows(RuntimeException.class,()->{
             filmeService.delete(50);
         });
