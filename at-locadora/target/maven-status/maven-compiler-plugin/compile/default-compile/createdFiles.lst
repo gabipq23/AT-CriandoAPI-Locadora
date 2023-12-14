@@ -1,0 +1,6 @@
+br\com\gabrielapq\atlocadora\service\FilmeService.class
+br\com\gabrielapq\atlocadora\controllers\FilmeController.class
+br\com\gabrielapq\atlocadora\model\Producao.class
+br\com\gabrielapq\atlocadora\model\Filme.class
+br\com\gabrielapq\atlocadora\model\Producao$ProducaoBuilder.class
+br\com\gabrielapq\atlocadora\AtLocadoraApplication.class
